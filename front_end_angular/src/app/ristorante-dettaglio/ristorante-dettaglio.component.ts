@@ -8,6 +8,9 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./ristorante-dettaglio.component.css']
 })
 export class RistoranteDettaglioComponent {
+
+  elenco: any = [];
+
   varId: string | undefined;
   varNome: string | undefined;
   varIndirizzo: string | undefined;
@@ -31,6 +34,8 @@ export class RistoranteDettaglioComponent {
             this.varNome = risultato.ristorante.nome;
             this.varIndirizzo = risultato.ristorante.indirizzo;
             this.varTipoCucina = risultato.ristorante.tipoCucina;
+
+            this.elenco=risultato.recensione
           },
           (errore) => {
 

@@ -5,5 +5,24 @@
     <p>Indirizzo: {{varIndirizzo}}</p>
     <p>TipoCucina: {{varTipoCucina}}</p>
 
-    <!-- <button type="button" class="btn btn-danger" (click)="eliminaProdotto()">Elimina</button> -->
+</div>
+
+<div class="container">
+    <h3>Recensioni</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Autore</th>
+                <th>Testo</th>
+                <th>Voto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ris of elenco">
+                <td>{{ ris.autore }}</td>
+                <td>{{ ris.testo }}</td>
+                <td>{{ ris.voto }}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
