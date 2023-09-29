@@ -18,8 +18,8 @@ app.listen(process.env.PORT, process.env.HOST, () => {
 
 //----------------- ROTTE API ------------------------
 
-// const inserimentoMess = require("./controllers/Messaggio/inserimento");
-// const cercatuttiProd = require("./controllers/Messaggio/cercatutti");
+const inserimentoRist = require("./controllers/Ristorante/inserimento");
+const cercatuttiRist = require("./controllers/Ristorante/cercatutti");
 
-// app.post("/api/messaggio", inserimentoMess)
-// app.get("/api/messaggio", cercatuttiProd)
+app.post("/api/ristorante", inserimentoRist)
+app.get("/api/ristorante", cercatuttiRist)
