@@ -1,1 +1,23 @@
-<p>ristorante-inserisci works!</p>
+<div class="container">
+
+    <h1>Inserisci Ristorante</h1>
+
+    <div class="mb-3">
+        <label for="inputNome" class="form-label">Nome</label>
+        <input type="text" [(ngModel)]="varNome" name="var_nome" class="form-control" id="inputNome"
+            aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="inputIndirizzo" class="form-label">Indirizzo</label>
+        <input type="text" [(ngModel)]="varIndirizzo" name="var_indirizzo" class="form-control" id="inputIndirizzo"
+            aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="inputTipoCucina" class="form-label">TipoCucina</label>
+        <input type="text" [(ngModel)]="varTipoCucina" name="var_tipoCucina" class="form-control" id="inputTipoCucina"
+            aria-describedby="emailHelp">
+    </div>
+
+    <button type="button" (click)="insertRistorante()" class="btn btn-primary">Salva</button>
+
+</div>
