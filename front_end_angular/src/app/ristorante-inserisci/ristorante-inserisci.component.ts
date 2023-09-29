@@ -27,7 +27,7 @@ export class RistoranteInserisciComponent {
     this.service.inserisciRistorante(rist).subscribe(
       (risultato) => {
         if (risultato.status == 'success') {
-          alert("Stappoooooooo")
+          alert("Inserimento Avvenuto!!!")
 
           this.router.navigateByUrl("ristorante/lista")
         }

@@ -19,6 +19,10 @@ export class RistoranteService {
     return this.http.get<Risultato>(this.endPointR)
   }
 
+  cercaRistorantePerId(varId: string) {
+    return this.http.get<Ristorante>(`${this.endPointR}/${varId}`)
+  }
+
   inserisciRistorante(objStu: Ristorante) {
 
     var header_custom = new HttpHeaders();

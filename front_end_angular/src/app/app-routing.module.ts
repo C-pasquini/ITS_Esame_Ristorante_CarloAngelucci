@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RistoranteListaComponent } from './ristorante-lista/ristorante-lista.component';
 import { RistoranteInserisciComponent } from './ristorante-inserisci/ristorante-inserisci.component';
+import { RistoranteDettaglioComponent } from './ristorante-dettaglio/ristorante-dettaglio.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
     path: "",
     redirectTo: "ristorante/lista",
     pathMatch: "full"
+  },
+  {
+    path: "ristorante/dettaglio/:ristoranteId",
+    component: RistoranteDettaglioComponent
   },
   {
     path: "ristorante/nuovo",
