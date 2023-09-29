@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Risultato } from './Risposta';
 import { Ristorante } from './Ristorante';
+import { Recensione } from './Recensione';
 
 
 @Injectable({
@@ -10,6 +11,7 @@ import { Ristorante } from './Ristorante';
 export class RistoranteService {
 
   private endPointR: string = "http://localhost:4000/api/ristorante"
+  private endPointRc: string = "http://localhost:4000/api/recensione"
 
   constructor(private http: HttpClient) {
 
@@ -29,5 +31,13 @@ export class RistoranteService {
     header_custom = header_custom.set('Content-Type', 'application/json');
 
     return this.http.post<Risultato>(this.endPointR, JSON.stringify(objStu), { headers: header_custom })
+  }
+
+  inserisciRecensione(objStu: Recensione) {
+
+    var header_custom = new HttpHeaders();
+    header_custom = header_custom.set('Content-Type', 'application/json');
+
+    return this.http.post<Risultato>(this.endPointRc, JSON.stringify(objStu), { headers: header_custom })
   }
 }

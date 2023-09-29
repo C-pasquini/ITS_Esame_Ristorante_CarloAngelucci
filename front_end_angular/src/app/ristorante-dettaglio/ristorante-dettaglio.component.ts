@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RistoranteService } from '../ristorante.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Recensione } from '../Recensione';
 
 @Component({
   selector: 'app-ristorante-dettaglio',
@@ -11,10 +12,16 @@ export class RistoranteDettaglioComponent {
 
   elenco: any = [];
 
+  //Var Ristorante
   varId: string | undefined;
   varNome: string | undefined;
   varIndirizzo: string | undefined;
   varTipoCucina: string | undefined;
+
+  //Var Recensione
+  varAutore: string | undefined;
+  varTesto: string | undefined;
+  varVoto: number | undefined;
 
   constructor(
     private service: RistoranteService, 
@@ -42,6 +49,30 @@ export class RistoranteDettaglioComponent {
           }
         )
 
+      }
+    )
+  }
+
+  insertRecensione() {
+
+    let rec: Recensione = new Recensione();
+    rec.autore = this.varAutore;
+    rec.testo = this.varTesto;
+    rec.voto = this.varVoto;
+
+    this.service.inserisciRecensione(rec).subscribe(
+      (risultato) => {
+        if (risultato.status == 'success') {
+          alert("Inserimento Avvenuto!!!")
+
+          this.router.navigateByUrl("ristorante/lista")
+        }
+        else
+          alert("Errore")
+      },
+
+      (errore) => {
+        console.log(errore)
       }
     )
   }
