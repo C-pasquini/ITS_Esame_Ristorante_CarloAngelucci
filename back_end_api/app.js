@@ -20,6 +20,8 @@ app.listen(process.env.PORT, process.env.HOST, () => {
 
 const inserimentoRist = require("./controllers/Ristorante/inserimento");
 const cercatuttiRist = require("./controllers/Ristorante/cercatutti");
+const cercasingoloRist = require("./controllers/Ristorante/cercasingolo");
 
 app.post("/api/ristorante", inserimentoRist)
 app.get("/api/ristorante", cercatuttiRist)
+app.get("/api/ristorante/:id", cercasingoloRist)
