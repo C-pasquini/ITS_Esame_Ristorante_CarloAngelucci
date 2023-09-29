@@ -28,9 +28,9 @@ export class RistoranteDettaglioComponent {
         this.service.cercaRistorantePerId(ristId).subscribe(
           (risultato) => {
             this.varId = ristId;
-            this.varNome = risultato.nome;
-            this.varIndirizzo = risultato.indirizzo;
-            this.varTipoCucina = risultato.tipoCucina;
+            this.varNome = risultato.ristorante.nome;
+            this.varIndirizzo = risultato.ristorante.indirizzo;
+            this.varTipoCucina = risultato.ristorante.tipoCucina;
           },
           (errore) => {
 

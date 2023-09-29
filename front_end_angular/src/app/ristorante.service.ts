@@ -20,7 +20,7 @@ export class RistoranteService {
   }
 
   cercaRistorantePerId(varId: string) {
-    return this.http.get<Ristorante>(`${this.endPointR}/${varId}`)
+    return this.http.get<Risultato>(`${this.endPointR}/${varId}`)
   }
 
   inserisciRistorante(objStu: Ristorante) {
