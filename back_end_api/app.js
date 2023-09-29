@@ -24,6 +24,7 @@ const cercasingoloRist = require("./controllers/Ristorante/cercasingolo");
 const inserimentoRec = require("./controllers/Recensione/inserimento");
 
 
+
 app.post("/api/ristorante", inserimentoRist)
 app.get("/api/ristorante", cercatuttiRist)
 app.get("/api/ristorante/:id", cercasingoloRist)

@@ -1,12 +1,12 @@
 const Ristorante = require("../../models/Ristorante")
+const Recensione = require("../../models/Recensione")
 
 module.exports = async (req, res) => {
     try {
-        let risultato = await Ristorante.findById(req.params.id)
-
+        let ristorante = await Ristorante.findById(req.params.id)
+        let recensione = await Recensione.find({ ristoranteId: ristorante._id});
         res.json({
-            status: 'success',
-            data: risultato
+            ristorante, recensione
         })
     } catch (error) {
         res.json({
