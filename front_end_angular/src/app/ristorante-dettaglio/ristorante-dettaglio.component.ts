@@ -24,13 +24,13 @@ export class RistoranteDettaglioComponent {
   varVoto: number | undefined;
 
   constructor(
-    private service: RistoranteService, 
+    private service: RistoranteService,
     private rottaAttiva: ActivatedRoute,
-    private router: Router){
+    private router: Router) {
 
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.rottaAttiva.params.subscribe(
       (parametri) => {
         let ristId = parametri.ristoranteId
@@ -42,7 +42,7 @@ export class RistoranteDettaglioComponent {
             this.varIndirizzo = risultato.ristorante.indirizzo;
             this.varTipoCucina = risultato.ristorante.tipoCucina;
 
-            this.elenco=risultato.recensione
+            this.elenco = risultato.recensione
           },
           (errore) => {
 
@@ -59,28 +59,28 @@ export class RistoranteDettaglioComponent {
         let ristId = parametri.ristoranteId
 
 
-    let rec: Recensione = new Recensione();
-    rec.autore = this.varAutore;
-    rec.testo = this.varTesto;
-    rec.voto = this.varVoto;
-    rec.ristoranteId=ristId;
+        let rec: Recensione = new Recensione();
+        rec.autore = this.varAutore;
+        rec.testo = this.varTesto;
+        rec.voto = this.varVoto;
+        rec.ristoranteId = ristId;
 
-    this.service.inserisciRecensione(rec).subscribe(
-      (risultato) => {
-        if (risultato.status == 'success') {
-          alert("Inserimento Avvenuto!!!")
+        this.service.inserisciRecensione(rec).subscribe(
+          (risultato) => {
+            if (risultato.status == 'success') {
+              alert("Inserimento Avvenuto!!!")
 
-          this.router.navigateByUrl("ristorante/lista")
-        }
-        else
-          alert("Errore")
-      },
+              this.router.navigateByUrl("ristorante/lista")
+            }
+            else
+              alert("Errore")
+          },
 
-      (errore) => {
-        console.log(errore)
-      }
-    )
-    //
+          (errore) => {
+            console.log(errore)
+          }
+        )
+        //
       }
     )
   }
