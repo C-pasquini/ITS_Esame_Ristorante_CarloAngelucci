@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { RistoranteService } from '../ristorante.service';
+
 
 @Component({
   selector: 'app-ristorante-lista',
@@ -6,5 +8,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./ristorante-lista.component.css']
 })
 export class RistoranteListaComponent {
+  elenco: any = [];
 
+  constructor(private service: RistoranteService) {
+    console.log("Sono il costruttore")
+  }
+
+  ngOnInit() {
+    this.service.cercaTuttiRistoranti().subscribe(
+      (risultato) => {
+        this.elenco = risultato
+      },
+      (errore) => {
+
+        console.log(errore)
+      }
+    )
+
+  }
 }
