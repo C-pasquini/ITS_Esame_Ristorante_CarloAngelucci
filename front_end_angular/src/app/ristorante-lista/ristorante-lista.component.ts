@@ -17,7 +17,7 @@ export class RistoranteListaComponent {
   ngOnInit() {
     this.service.cercaTuttiRistoranti().subscribe(
       (risultato) => {
-        this.elenco = risultato
+        this.elenco = risultato.data
       },
       (errore) => {
 
