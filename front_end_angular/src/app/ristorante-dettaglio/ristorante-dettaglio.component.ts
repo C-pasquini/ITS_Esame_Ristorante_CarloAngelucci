@@ -54,12 +54,16 @@ export class RistoranteDettaglioComponent {
   }
 
   insertRecensione() {
-    
+    this.rottaAttiva.params.subscribe(
+      (parametri) => {
+        let ristId = parametri.ristoranteId
+
 
     let rec: Recensione = new Recensione();
     rec.autore = this.varAutore;
     rec.testo = this.varTesto;
     rec.voto = this.varVoto;
+    rec.ristoranteId=ristId;
 
     this.service.inserisciRecensione(rec).subscribe(
       (risultato) => {
@@ -74,6 +78,9 @@ export class RistoranteDettaglioComponent {
 
       (errore) => {
         console.log(errore)
+      }
+    )
+    //
       }
     )
   }
