@@ -8,13 +8,15 @@ import { FormsModule } from '@angular/forms';
 import { RistoranteListaComponent } from './ristorante-lista/ristorante-lista.component';
 import { RistoranteInserisciComponent } from './ristorante-inserisci/ristorante-inserisci.component';
 import { RistoranteDettaglioComponent } from './ristorante-dettaglio/ristorante-dettaglio.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RistoranteListaComponent,
     RistoranteInserisciComponent,
-    RistoranteDettaglioComponent
+    RistoranteDettaglioComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
