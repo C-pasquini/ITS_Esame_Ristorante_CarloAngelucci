@@ -29,3 +29,6 @@ app.post("/api/ristorante", inserimentoRist)
 app.get("/api/ristorante", cercatuttiRist)
 app.get("/api/ristorante/:id", cercasingoloRist)
 app.post("/api/recensione", inserimentoRec)
+
+//----------------- API per Utente -----------------\\
+
