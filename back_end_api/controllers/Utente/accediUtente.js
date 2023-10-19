@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
             password: req.body.password
         })
 
-        if(credenziali == null)
+        if(credenziali == null && credenziali.status == false)
         {
             res.json({
                 status:404,

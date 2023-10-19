@@ -16,13 +16,12 @@ app.listen(process.env.PORT, process.env.HOST, () => {
     console.log(`Sono in ascolto sulla porta ${process.env.PORT}`)
 })
 
-//----------------- ROTTE API ------------------------
+//----------------- ROTTE API -----------------\\
 
 const inserimentoRist = require("./controllers/Ristorante/inserimento");
 const cercatuttiRist = require("./controllers/Ristorante/cercatutti");
 const cercasingoloRist = require("./controllers/Ristorante/cercasingolo");
 const inserimentoRec = require("./controllers/Recensione/inserimento");
-
 
 
 app.post("/api/ristorante", inserimentoRist)
@@ -32,3 +31,7 @@ app.post("/api/recensione", inserimentoRec)
 
 //----------------- API per Utente -----------------\\
 
+const accediUtente = require("./controllers/Utente/accediUtente");
+
+
+app.get("/api/login", accediUtente)
