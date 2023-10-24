@@ -60,14 +60,14 @@ export class RistoranteDettaglioComponent {
 
 
         let rec: Recensione = new Recensione();
-        rec.autore = this.varAutore;
+        rec.autore = window.sessionStorage.getItem("email")? window.sessionStorage.getItem("email") : "";
         rec.testo = this.varTesto;
         rec.voto = this.varVoto;
         rec.ristoranteId = ristId;
 
         this.service.inserisciRecensione(rec).subscribe(
           (risultato) => {
-            if (risultato.status == 'success') {
+            if (risultato.status == 'success' && window.sessionStorage.getItem("email") != null && window.sessionStorage.getItem("password") != null ) {
               alert("Inserimento Avvenuto!!!")
 
               this.router.navigateByUrl("ristorante/lista")
@@ -80,7 +80,6 @@ export class RistoranteDettaglioComponent {
             console.log(errore)
           }
         )
-        //
       }
     )
   }
