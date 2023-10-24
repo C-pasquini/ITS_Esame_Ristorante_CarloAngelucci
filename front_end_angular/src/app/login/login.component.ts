@@ -17,12 +17,14 @@ export class LoginComponent {
   accessoUtente() {
     let rist: Login = new Login();
     rist.email = this.varEmail;
-    rist.email = this.varPassword;
+    rist.password = this.varPassword;
 
     this.service.login(rist).subscribe(
       (risultato) => {
         try {
           alert("Sei conesso!")
+          window.sessionStorage.setItem("email", rist.email? rist.email : "")
+          window.sessionStorage.setItem("password", rist.password? rist.password: "")
           this.router.navigateByUrl("/")
         } catch (error) {
           alert("Errore")

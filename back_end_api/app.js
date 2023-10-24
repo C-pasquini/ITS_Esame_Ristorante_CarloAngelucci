@@ -1,7 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const sessionStore = require("node-sessionstorage");
 require('dotenv').config();  
 
 const app = express();
@@ -16,8 +15,6 @@ mongoose.connect(process.env.MONGOSTRING, {useNewUrlPrse: true}, () => {
 app.listen(process.env.PORT, process.env.HOST, () => {
     console.log(`Sono in ascolto sulla porta ${process.env.PORT}`)
 })
-
-sessionStore.setItem('key', 'value')
 
 //----------------- ROTTE API -----------------\\
 
