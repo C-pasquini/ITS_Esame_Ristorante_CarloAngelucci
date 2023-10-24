@@ -1,1 +1,18 @@
-<p>login works!</p>
+<div class="container">
+
+    <h1>Fai Login</h1>
+
+    <div class="mb-3">
+        <label for="inputEmail" class="form-label">E-mail</label>
+        <input type="text" [(ngModel)]="varEmail" name="var_email" class="form-control" id="inputEmail"
+            aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="inputPassword" class="form-label">Password</label>
+        <input type="text" [(ngModel)]="varPassword" name="var_password" class="form-control" id="inputPassword"
+            aria-describedby="emailHelp">
+    </div>
+
+    <button type="button" (click)="accessoUtente()" class="btn btn-primary">Entra</button>
+
+</div>
