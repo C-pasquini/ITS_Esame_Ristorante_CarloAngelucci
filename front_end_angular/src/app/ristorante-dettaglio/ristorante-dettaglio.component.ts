@@ -67,9 +67,9 @@ export class RistoranteDettaglioComponent {
 
         this.service.inserisciRecensione(rec).subscribe(
           (risultato) => {
-            if (risultato.status == 'success' && window.sessionStorage.getItem("email") != null && window.sessionStorage.getItem("password") != null ) {
+            if (risultato.status == 'success'  ) {
               alert("Inserimento Avvenuto!!!")
-
+              // && window.sessionStorage.getItem("email") != null && window.sessionStorage.getItem("password") != null
               this.router.navigateByUrl("ristorante/lista")
             }
             else
