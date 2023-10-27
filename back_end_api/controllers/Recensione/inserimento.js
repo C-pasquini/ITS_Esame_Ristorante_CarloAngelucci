@@ -5,9 +5,11 @@ const AuthVerify = require("../../AuthCode")
 module.exports = async (req, res) => {
     try {
         try {
-            //let User = AuthVerify(req.headers.authorization)
-            
-            /*if (true){
+            //console.log(req.headers.authorization)
+            let User = await AuthVerify(req)
+            //console.log(req)
+            console.log(User)
+            if (User != null || User != undefined){
                 let risultato = await Recensione.create({
                     ristoranteId: req.body.ristoranteId,
                     autore: User.username,
@@ -20,9 +22,9 @@ module.exports = async (req, res) => {
                     status: "success",
                     data: ""
                 })
-            }*/
+            }
 
-            let risultato = await Recensione.create({
+            /*let risultato = await Recensione.create({
                 ristoranteId: req.body.ristoranteId,
                 autore: User.username,
                 testo: req.body.testo,
@@ -33,7 +35,7 @@ module.exports = async (req, res) => {
             res.json({
                 status: "success",
                 data: ""
-            })
+            })*/
 
             /*res.json({
                 status:"unknown",
@@ -44,8 +46,11 @@ module.exports = async (req, res) => {
                 status:"Error",
                 data:"User Not Authorized"
             })
+            console.log(`Error ${error}`)
         }
     } catch (error) {
+        console.log(error)
+        console.log(res)
         res.json({
             status: "error",
             data: error

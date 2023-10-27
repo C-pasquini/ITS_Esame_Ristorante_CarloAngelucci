@@ -1,46 +1,51 @@
 const Utente = require("./models/Utente")
 
 module.exports = (request) => {
+    //console.log(request.headers.authorization)
     let b64_code = request.headers.authorization.split(" ")
-    console.log(b64_code)
+    //console.log(b64_code)
     let ascii_code = atob(b64_code[1])
     let ascii_code_split = ascii_code.split(":")
-    console.log(ascii_code_split[0])
-    console.log(ascii_code_split[1])
+    //console.log(ascii_code_split[0])
+    //console.log(ascii_code_split[1])
     let auth = async (req, res) => {
         try {
-            console.log(ascii_code[0])
-            console.log(ascii_code[1])
-            let user = await Utente.findOne({
-                email:ascii_code[0],
-                password:ascii_code[1]
-            })
             try {
+                //console.log(ascii_code_split[0])
+                //console.log(ascii_code_split[1])
+                let user = await Utente.findOne({
+                    email:ascii_code_split[0],
+                    password:ascii_code_split[1]
+                })
                 if(user != null){
                     
-                    console.log(user)
+                    //console.log(user)
                     return user
                 }
                 res.json({
-                    status:"",
-                    data:""
+                    status:"success",
+                    data:user
                 })
             } catch (error) {
+                //console.log(error)
+                //console.log(res)
                 res.json({
                     status:"",
                     data:""
                 })
+                //console.log(res)
             }
         } catch (error) {
+            //console.log(error)
             res.json({
                 status:"",
                 data:""
             })
-            return null
+            //console.log(error)
         }
     }
-    console.log(auth)
-    //let user = auth(null, null)
+    //console.log(auth)
+    let user = auth(request, null)
     return user
 }
 

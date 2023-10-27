@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
             })
         }catch(errore){
             res.json({
-                status:404,
+                status:"404",
                 data:"Not Found"
             })
         }
