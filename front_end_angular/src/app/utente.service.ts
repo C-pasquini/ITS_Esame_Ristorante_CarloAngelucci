@@ -13,7 +13,20 @@ import { Login } from './Login';
 export class UtenteService {
 
   private endPoint: string = "http://localhost:4000/api/utenti/login"
+  private endPoint_Search: string = "/api/utenti/verUser"
   constructor(private http: HttpClient ) { }
+
+  VerificaEsistenzaUtente(email: String | null, password: String | null){
+    email = window.sessionStorage.getItem("email")
+    password = window.sessionStorage.getItem("password")
+    const httpOtions = ({
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'data':`${email} ${password}`
+      })
+    })
+    return this.http.get<Risultato>(this.endPoint_Search, httpOtions)
+  }
 
   login(li: Login) {
     var headerCustom = new HttpHeaders();

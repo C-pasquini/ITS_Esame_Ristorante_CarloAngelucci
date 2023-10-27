@@ -33,7 +33,9 @@ app.post("/api/recensione", inserimentoRec)
 
 const accediUtente = require("./controllers/Utente/accediUtente");
 const creaUtente = require("./controllers/Utente/creaUtente");
+const cercaUtente = require("./controllers/Utente/cercaUtente");
 
 
 app.post("/api/utenti/register", creaUtente)
 app.post("/api/utenti/login", accediUtente)
+app.get("/api/utenti/verUser", cercaUtente)
