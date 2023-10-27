@@ -2,13 +2,15 @@ const Utente = require("./models/Utente")
 
 module.exports = (request) => {
     let b64_code = request.headers.authorization.split(" ")
-    let ascii_code = atob(b64_code[1]).split(":")
-    console.log(this.ascii_code[0])
-    console.log(this.ascii_code[1])
+    console.log(b64_code)
+    let ascii_code = atob(b64_code[1])
+    let ascii_code_split = ascii_code.split(":")
+    console.log(ascii_code_split[0])
+    console.log(ascii_code_split[1])
     let auth = async (req, res) => {
         try {
-            console.log(this.ascii_code[0])
-            console.log(this.ascii_code[1])
+            console.log(ascii_code[0])
+            console.log(ascii_code[1])
             let user = await Utente.findOne({
                 email:ascii_code[0],
                 password:ascii_code[1]
@@ -37,8 +39,8 @@ module.exports = (request) => {
             return null
         }
     }
-    //console.log(auth)
-    let user = auth(null, null)
+    console.log(auth)
+    //let user = auth(null, null)
     return user
 }
 
