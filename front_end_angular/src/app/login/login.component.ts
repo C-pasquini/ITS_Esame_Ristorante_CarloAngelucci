@@ -33,7 +33,7 @@ export class LoginComponent {
     this.service.login(rist).subscribe(
       (risultato) => {
         try {
-          if(rist.email != "" || rist.password != ""){
+          if(risultato.status == "success"){
             alert("Sei conesso!")
             window.sessionStorage.setItem("email", rist.email? rist.email : "")
             window.sessionStorage.setItem("password", rist.password? rist.password: "")
