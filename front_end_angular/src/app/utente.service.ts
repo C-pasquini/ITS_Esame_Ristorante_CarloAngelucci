@@ -21,11 +21,14 @@ export class UtenteService {
     password = window.sessionStorage.getItem("password")
     const httpOtions = ({
       headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'data':`${email} ${password}`
+        'Content-Type': 'application/json'
       })
     })
-    return this.http.get<Risultato>(this.endPoint_Search, httpOtions)
+    const json_var = {
+      email:email,
+      password:password
+    }
+    return this.http.post<Risultato>(this.endPoint_Search, httpOtions)
   }
 
   login(li: Login) {
